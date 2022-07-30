@@ -333,10 +333,12 @@ const audioDurInMin = (dur, min = 0) => {
 const updateProgress = () => {
   try {
     const sliderSeekerMaxVal = Number(seekerSlider.getAttribute("max"));
+    durVal.textContent = "";
+    durVal.textContent = "";
     const audioDur = audioDurInMin(audio.duration);
     const currTime = audioDurInMin(audio.currentTime);
-    durVal.textContent = "";
-    durCount.textContent = "";
+    // durVal.textContent = audioDur;
+    // durCount.textContent = currTime;
     const seekerVal = (sliderSeekerMaxVal / audio.duration) * audio.currentTime;
     if (Number(seekerSlider.value) !== seekerVal) {
       seekerSlider.value = seekerVal;
