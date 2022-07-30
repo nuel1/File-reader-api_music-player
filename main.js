@@ -88,21 +88,14 @@ const playPauseTrack = () => {
       showBtn(pauseBtn);
 
       playpauseBtn.setAttribute("data-current-state", "played");
-
-      //Remove the play event.
-      removeEvent(playpauseBtn, "click", playPauseTrack);
-
-      // Redefine the event function that pauses track
-      addEvent(playpauseBtn, "click", playPauseTrack);
     } else {
       audio.pause();
       hideBtn(pauseBtn);
       showBtn(playBtn);
 
       playpauseBtn.setAttribute("data-current-state", "paused");
-      removeEvent(playpauseBtn, "click", playPauseTrack);
-      addEvent(playpauseBtn, "click", playPauseTrack);
     }
+    addEvent(playpauseBtn, "click", playPauseTrack);
   }
 };
 
@@ -154,10 +147,10 @@ prevBtn.addEventListener("click", prevTrack);
 
 const loadTrack = (source) => {
   audio.load();
-  alert(source);
   audio.setAttribute("src", source);
+  audio.autoplay = true;
 
-  playPauseTrack();
+  // playPauseTrack();
   highlightPlaying(trackIndex);
 };
 
