@@ -198,7 +198,7 @@ const getYear = (dateInStr) => {
 const structureTableUI = (data) => {
   if (!data.length) {
     loader.style.display = "none";
-    loadTrack(mediaSourceFiles[0].path);
+    loadTrack("/audio1.mp3");
     return;
   }
 
@@ -333,12 +333,12 @@ const audioDurInMin = (dur, min = 0) => {
 const updateProgress = () => {
   try {
     const sliderSeekerMaxVal = Number(seekerSlider.getAttribute("max"));
-    durVal.textContent = "";
-    durVal.textContent = "";
+    // durVal.textContent = "";
+    // durVal.textContent = "";
     const audioDur = audioDurInMin(audio.duration);
     const currTime = audioDurInMin(audio.currentTime);
-    // durVal.textContent = audioDur;
-    // durCount.textContent = currTime;
+    durVal.textContent = audioDur;
+    durCount.textContent = currTime;
     const seekerVal = (sliderSeekerMaxVal / audio.duration) * audio.currentTime;
     if (Number(seekerSlider.value) !== seekerVal) {
       seekerSlider.value = seekerVal;
