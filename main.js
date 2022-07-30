@@ -148,8 +148,8 @@ prevBtn.addEventListener("click", prevTrack);
 const loadTrack = (source) => {
   audio.load();
   audio.setAttribute("src", source);
-  audio.autoplay = true;
-
+  alert(audio.src);
+  audio.play();
   // playPauseTrack();
   highlightPlaying(trackIndex);
 };
