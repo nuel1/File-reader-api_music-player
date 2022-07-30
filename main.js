@@ -77,7 +77,6 @@ const addEvent = (element, eventType, callback) => {
 // shows and the other get hidden
 const playPauseTrack = () => {
   if (audio.src) {
-    alert(true);
     if (playpauseBtn.getAttribute("data-current-state") == "paused") {
       //Pause audio player
       audio.play();
@@ -155,6 +154,7 @@ prevBtn.addEventListener("click", prevTrack);
 
 const loadTrack = (source) => {
   audio.load();
+  alert(source);
   audio.setAttribute("src", source);
 
   playPauseTrack();
