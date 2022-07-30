@@ -198,7 +198,8 @@ const getYear = (dateInStr) => {
 const structureTableUI = (data) => {
   if (!data.length) {
     loader.style.display = "none";
-    loadTrack("/audio1.mp3");
+    console.log(mediaSourceFiles[0].path);
+    loadTrack(`${mediaSourceFiles[0].path}`);
     return;
   }
 
@@ -308,11 +309,15 @@ const readFiles = async (file) => {
   try {
     const reader = new FileReader();
     const promise = new Promise((resolve, _) => {
-      reader.addEventListener("load", function (e) {
-        file.path = e.target.result;
-      });
       reader.readAsDataURL(file);
-      resolve(file);
+
+      reader.addEventListener("loadend", function (e) {
+        if (reader.readyState == 2) {
+          file.path = e.target.result;
+          console.log(file.path);
+          resolve(file);
+        }
+      });
     });
 
     const result = await promise;
