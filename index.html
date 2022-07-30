@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="loader-model" style="display: none">
+      <div class="loader-bar">
+        <div class="spinner-container">
+          <div class="ids-spinner">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        </div>
+        <div class="loader-message">
+          <p>Please grab a drink 🧉 while we upload your music</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="audio-player">
+      <div class="audio-controller">
+        <div class="prev">
+          <img src="next_icon.svg" alt="previous button" />
+        </div>
+        <div class="player" data-current-state="paused">
+          <img
+            src="pause_icon.svg"
+            alt="pause button"
+            class="btn-pause hidden"
+          />
+          <img src="play_icon.svg" alt="play button" class="btn-play visible" />
+        </div>
+        <div class="next">
+          <img src="next_icon.svg" alt="next button" />
+        </div>
+      </div>
+      <div class="audio-seeker">
+        <div class="seeker-start-value">
+          <p>0:00</p>
+        </div>
+        <input type="range" max="100" id="seeker-slider" value="0" />
+        <div class="seeker-end-value">
+          <p>0:00</p>
+        </div>
+      </div>
+    </div>
+
+    <table style="display: none">
+      <thead>
+        <tr>
+          <td>Date Modified</td>
+          <td>Name</td>
+          <td>Size</td>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <form action="">
+      <label for="file" class="drop-area">
+        <input type="file" accept=".mp3" multiple style="opacity: 0" />
+        <span>+</span>
+      </label>
+    </form>
+
+    <label for="progress" class="hidden">
+      <span class="remainder">0%</span>
+      <progress max="100" value="0"></progress>
+      <span class="target">100%</span>
+    </label>
+
+    <script src="main.js"></script>
+    <script src="sound.js"></script>
+  </body>
+</html>
