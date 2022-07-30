@@ -122,7 +122,7 @@ const nextTrack = () => {
       playPauseTrack();
     }
 
-    audio.src = newTrack.path;
+    audio.setAttribute("src", newTrack.path);
     audio.play();
 
     highlightPlaying(trackIndex);
@@ -145,7 +145,7 @@ const prevTrack = () => {
 
   prevTrack = mediaSourceFiles[trackIndex];
 
-  audio.src = prevTrack.path;
+  audio.setAttribute("src", prevTrack.path);
   audio.play();
   highlightPlaying(trackIndex);
 };
@@ -154,7 +154,7 @@ prevBtn.addEventListener("click", prevTrack);
 
 const loadTrack = (source) => {
   audio.load();
-  audio.src = source;
+  audio.setAttribute("src", source);
 
   playPauseTrack();
   highlightPlaying(trackIndex);
@@ -205,6 +205,7 @@ const getYear = (dateInStr) => {
 const structureTableUI = (data) => {
   if (!data.length) {
     loader.style.display = "none";
+    console.log(mediaSourceFiles[0]);
     loadTrack(mediaSourceFiles[0].path);
     return;
   }
