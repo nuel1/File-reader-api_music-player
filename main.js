@@ -115,7 +115,7 @@ const nextTrack = () => {
       playPauseTrack();
     }
 
-    audio.setAttribute("src", newTrack.path);
+    audio.src = newTrack.path;
     audio.play();
 
     highlightPlaying(trackIndex);
@@ -138,7 +138,7 @@ const prevTrack = () => {
 
   prevTrack = mediaSourceFiles[trackIndex];
 
-  audio.setAttribute("src", prevTrack.path);
+  audio.src = prevTrack.path;
   audio.play();
   highlightPlaying(trackIndex);
 };
@@ -147,7 +147,7 @@ prevBtn.addEventListener("click", prevTrack);
 
 const loadTrack = (source) => {
   audio.load();
-  audio.setAttribute("src", source);
+  audio.src = source;
 
   playPauseTrack();
   highlightPlaying(trackIndex);
