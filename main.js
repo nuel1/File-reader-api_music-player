@@ -77,6 +77,7 @@ const addEvent = (element, eventType, callback) => {
 // shows and the other get hidden
 const playPauseTrack = () => {
   if (audio.src) {
+    alert(true);
     if (playpauseBtn.getAttribute("data-current-state") == "paused") {
       //Pause audio player
       audio.play();
@@ -205,7 +206,6 @@ const getYear = (dateInStr) => {
 const structureTableUI = (data) => {
   if (!data.length) {
     loader.style.display = "none";
-    console.log(mediaSourceFiles[0]);
     loadTrack(mediaSourceFiles[0].path);
     return;
   }
